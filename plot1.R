@@ -17,8 +17,10 @@ total_emissons <- NEI %>%
     group_by(year) %>% 
     summarise(Total.Emissions = sum(Emissions))
 
+png("plot1.png")
 plot(total_emissons$year, total_emissons$Total.Emissions/1e6, 
      pch = 19,
      ylab = "Total emission (million tons)",
      xlab = "Year")
 lines(total_emissons$year, total_emissons$Total.Emissions/1e6)
+dev.off()
