@@ -1,7 +1,7 @@
 #
-# Task 1: Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? 
-#         Using the base plotting system, make a plot showing the total PM2.5 emission from 
-#         all sources for each of the years 1999, 2002, 2005, and 2008.
+# Task 2: Have total emissions from PM2.5 decreased in the Baltimore City, Maryland 
+#         (fips == "24510") from 1999 to 2008? Use the base plotting system to 
+#         make a plot answering this question.
 #
 
 # The data needs to be present in the directory: "exdata_data_NEI_data"
@@ -13,10 +13,14 @@ NEI <- readRDS("exdata_data_NEI_data/summarySCC_PM25.rds")
 
 require("tidyverse")
 
+# 2. Summarise data
+
 total_emissons_baltimore <- NEI %>% 
     filter(fips == "24510") %>% 
     group_by(year) %>% 
     summarise(Total.Emissions = sum(Emissions))
+
+# 3. Plot data
 
 png("plot2.png")
 plot(total_emissons_baltimore$year, total_emissons_baltimore$Total.Emissions, 

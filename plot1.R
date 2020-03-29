@@ -13,9 +13,13 @@ NEI <- readRDS("exdata_data_NEI_data/summarySCC_PM25.rds")
 
 require("tidyverse")
 
+# 2. Summarise data
+
 total_emissons <- NEI %>% 
     group_by(year) %>% 
     summarise(Total.Emissions = sum(Emissions))
+
+# 3. Plot data
 
 png("plot1.png")
 plot(total_emissons$year, total_emissons$Total.Emissions/1e6, 
