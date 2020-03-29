@@ -24,11 +24,11 @@ emissons_baltimore <- NEI %>%
 
 png("plot3.png")
 
-emissons_baltimore %>% ggplot(aes(x = year, y = emissions, color = type)) +
+p1 <- emissons_baltimore %>% ggplot(aes(x = year, y = emissions, color = type)) +
     geom_point() + 
     geom_line() + 
     ylab("Total emission per type (tons)") +
     scale_x_discrete("Year", limits = c(1999,2002,2005,2008)) +
-    ggtitle("PM25 emissions in Baltimore")
-
+    ggtitle("PM2.5 emissions in Baltimore")
+print(p1)
 dev.off()

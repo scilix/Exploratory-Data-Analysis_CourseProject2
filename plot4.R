@@ -29,7 +29,7 @@ emissons_us <- NEI %>%
 
 png("plot4.png")
 
-emissons_us %>% ggplot(aes(x = year, y = emissions/1e3)) +
+p1 <- emissons_us %>% ggplot(aes(x = year, y = emissions/1e3)) +
     geom_point() + 
     geom_line() + 
     ylab("Total emission (thousand tons)") +
@@ -39,5 +39,5 @@ emissons_us %>% ggplot(aes(x = year, y = emissions/1e3)) +
                              nrow(scc_coal_combustion), "of" ,nrow(SCC),
                              "types of emission sources have been 
 identified to be related to coa combustion."))
-
+print(p1)
 dev.off()

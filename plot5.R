@@ -29,7 +29,7 @@ emissons_mv_baltimore <- NEI %>%
 
 png("plot5.png")
 
-emissons_mv_baltimore %>% ggplot(aes(x = year, y = emissions)) +
+p1 <- emissons_mv_baltimore %>% ggplot(aes(x = year, y = emissions)) +
     geom_point() + 
     geom_line() + 
     ylab("Total emission (tons)") +
@@ -39,5 +39,5 @@ emissons_mv_baltimore %>% ggplot(aes(x = year, y = emissions)) +
                              nrow(scc_motor_vehicles), "of" ,nrow(SCC),
                              "types of emission sources have been 
 identified to be related to motor vehicle emissions."))
-
+print(p1)
 dev.off()
